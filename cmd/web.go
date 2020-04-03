@@ -44,10 +44,11 @@ var webCmd = &cobra.Command{
 	Short: "Run Website",
 	Long:  `Run website for processing orders`,
 	Run: func(cmd *cobra.Command, args []string) {
-		log.Info("starting ...")
 		var wait time.Duration
 		flag.DurationVar(&wait, "graceful-timeout", time.Second*15, "the duration for which the server gracefully wait for existing connections to finish - e.g. 15s or 1m")
 		flag.Parse()
+
+		log.Print(args)
 
 		r := mux.NewRouter()
 		// Add your routes as needed
@@ -55,8 +56,10 @@ var webCmd = &cobra.Command{
 		r.HandleFunc("/", productsHandler).Queries("category", "{category}")
 		r.HandleFunc("/bucket", bucketHandler)
 
+		port, _ := cmd.Flags().GetString("port")
+
 		srv := &http.Server{
-			Addr: "0.0.0.0:80",
+			Addr: "0.0.0.0:" + port,
 			// Good practice to set timeouts to avoid Slowloris attacks.
 			WriteTimeout: time.Second * 15,
 			ReadTimeout:  time.Second * 15,
@@ -162,4 +165,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// webCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	webCmd.Flags().String("port", "9990", "Specify the local port to listen to.")
 }
