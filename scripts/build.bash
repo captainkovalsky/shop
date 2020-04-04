@@ -32,4 +32,4 @@ do
 
 done
 
-cp -rv "./../templates" "$dist"
+cp -rv "./templates" "$dist"
