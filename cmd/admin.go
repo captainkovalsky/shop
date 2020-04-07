@@ -16,7 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
@@ -25,7 +24,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -85,7 +83,6 @@ var adminCmd = &cobra.Command{
 		port, _ := cmd.Flags().GetString("port")
 
 		router := mux.NewRouter()
-		log.Println("admin called", username, password)
 
 		router.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 			// an example API handler
@@ -97,30 +94,22 @@ var adminCmd = &cobra.Command{
 		spa := spaHandler{staticPath: "static", indexPath: "index.html"}
 		router.PathPrefix("/").Handler(spa)
 
-		logger := func(next http.Handler) http.Handler {
-			return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-				// Do stuff here
-				auth := strings.SplitN(r.Header.Get("Authorization"), " ", 2)
-
-				if len(auth) != 2 || auth[0] != "Basic" {
-					http.Error(w, "authorization failed", http.StatusUnauthorized)
-					return
-				}
-
-				payload, _ := base64.StdEncoding.DecodeString(auth[1])
-				pair := strings.SplitN(string(payload), ":", 2)
-
-				if len(pair) != 2 || pair[0] == username || pair[1] == password {
-					http.Error(w, "authorization failed", http.StatusUnauthorized)
-					return
-				}
-
-				// Call the next handler, which can be another middleware in the chain, or the final handler.
-				next.ServeHTTP(w, r)
-			})
+		basicAuth := func(next http.Handler) http.Handler {
+			return http.HandlerFunc(
+				func(w http.ResponseWriter, r *http.Request) {
+					user, pass, _ := r.BasicAuth()
+					if user != username || pass != password {
+						w.Header().Set("WWW-Authenticate", `Basic realm="Access to the Admin Panel"`)
+						w.WriteHeader(401)
+						http.Error(w, "Unauthorized.", 401)
+						return
+					}
+					next.ServeHTTP(w, r)
+				},
+			)
 		}
 
-		router.Use(logger)
+		router.Use(basicAuth)
 
 		srv := &http.Server{
 			Handler: router,
