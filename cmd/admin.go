@@ -100,7 +100,6 @@ var adminCmd = &cobra.Command{
 					user, pass, _ := r.BasicAuth()
 					if user != username || pass != password {
 						w.Header().Set("WWW-Authenticate", `Basic realm="Access to the Admin Panel"`)
-						w.WriteHeader(401)
 						http.Error(w, "Unauthorized.", 401)
 						return
 					}
