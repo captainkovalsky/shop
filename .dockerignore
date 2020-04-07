@@ -1,4 +1,7 @@
+.idea
+.git
 k8s
+dist
 githooks
 docker
 deployments

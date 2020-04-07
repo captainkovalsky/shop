@@ -12,7 +12,8 @@ if [[ -z "$package_name" ]]; then
   package_name="shop"
 fi
 
-platforms=("windows/amd64" "linux/amd64" "darwin/amd64")
+#platforms=("windows/amd64" "linux/amd64" "darwin/amd64")
+platforms=("linux/amd64")
 
 for platform in "${platforms[@]}"
 do
@@ -24,7 +25,7 @@ do
         output_name+='.exe'
     fi
 
-    env GOOS=$GOOS GOARCH=$GOARCH go build -o "$dist/$output_name"
+    env CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH go build -o "$dist/$output_name"
     if [ $? -ne 0 ]; then
         echo 'An error has occurred! Aborting the script execution...'
         exit 1
