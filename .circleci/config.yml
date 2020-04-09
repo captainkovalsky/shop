@@ -6,7 +6,7 @@ jobs:
   buildBE:
     docker:
       # specify the version
-      - image: circleci/golang:1.9
+      - image: circleci/golang:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -25,8 +25,9 @@ jobs:
       - run: go get -v -t -d ./...
       - run: go test -v ./...
       - run: bash scripts/build.bash
+      - run: ls dist
       - store_artifacts:
-          path: /dist
+          path: dist
 
   buildFE:
     docker:
