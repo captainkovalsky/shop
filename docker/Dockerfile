@@ -1,3 +1,11 @@
+FROM node:latest as frontend
+RUN node -v
+WORKDIR /build
+ADD frontend ./
+RUN npm doctor && \
+    npm ci && \
+    npm run build
+
 FROM golang AS builder
 LABEL maintainer="vdzundza@protonmail.com"
 
@@ -14,5 +22,5 @@ RUN apk update && apk add --no-cache git ca-certificates && update-ca-certificat
 FROM scratch
 COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /app/dist /
-COPY --from=builder /app/static /static
+COPY --from=frontend /build/dist/frontend /static
 ENTRYPOINT ["/shop-linux-amd64"]

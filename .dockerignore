@@ -5,3 +5,4 @@ dist
 githooks
 docker
 deployments
+frontend/node_modules
