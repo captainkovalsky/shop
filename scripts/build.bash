@@ -33,4 +33,13 @@ do
 
 done
 
+echo pwd
 cp -rv "./templates" "$dist"
+
+cd frontend
+npm ci
+npm run build:aot
+
+cd -
+
+cp -rv "./frontend/dist/frontend/*" "./static"

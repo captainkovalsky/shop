@@ -16,17 +16,18 @@ limitations under the License.
 package cmd
 
 import (
-	"encoding/json"
+	"context"
 	"fmt"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
 	"math/rand"
 	"net/http"
 	"os"
+	"os/signal"
 	"path/filepath"
+	"syscall"
 	"time"
-
-	"github.com/spf13/cobra"
 )
 
 // spaHandler implements the http.Handler interface, so we can use it
@@ -82,43 +83,44 @@ var adminCmd = &cobra.Command{
 		password, _ := cmd.Flags().GetString("password")
 		port, _ := cmd.Flags().GetString("port")
 
-		router := mux.NewRouter()
+		log.Println(username, password, port)
 
-		router.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
-			// an example API handler
-			if err := json.NewEncoder(w).Encode(map[string]bool{"ok": true}); err == nil {
-				log.Error("failed tp Encode")
-			}
-		})
-
-		spa := spaHandler{staticPath: "static", indexPath: "index.html"}
-		router.PathPrefix("/").Handler(spa)
-
-		basicAuth := func(next http.Handler) http.Handler {
-			return http.HandlerFunc(
-				func(w http.ResponseWriter, r *http.Request) {
-					user, pass, _ := r.BasicAuth()
-					if user != username || pass != password {
-						w.Header().Set("WWW-Authenticate", `Basic realm="Access to the Admin Panel"`)
-						http.Error(w, "Unauthorized.", 401)
-						return
-					}
-					next.ServeHTTP(w, r)
-				},
-			)
-		}
-
-		router.Use(basicAuth)
+		router := gin.Default()
+		router.StaticFS("/", http.Dir("static"))
 
 		srv := &http.Server{
+			Addr:    ":" + port,
 			Handler: router,
-			Addr:    "127.0.0.1:" + port,
-			// Good practice: enforce timeouts for servers you create!
-			WriteTimeout: 15 * time.Second,
-			ReadTimeout:  15 * time.Second,
 		}
 
-		log.Fatal(srv.ListenAndServe())
+		// Initializing the server in a goroutine so that
+		// it won't block the graceful shutdown handling below
+		go func() {
+			if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+				log.Fatalf("listen: %s\n", err)
+			}
+		}()
+
+		// Wait for interrupt signal to gracefully shutdown the server with
+		// a timeout of 5 seconds.
+		quit := make(chan os.Signal)
+		// kill (no param) default send syscall.SIGTERM
+		// kill -2 is syscall.SIGINT
+		// kill -9 is syscall.SIGKILL but can't be catch, so don't need add it
+		signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+		<-quit
+		log.Println("Shuting down server...")
+
+		// The context is used to inform the server it has 5 seconds to finish
+		// the request it is currently handling
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		if err := srv.Shutdown(ctx); err != nil {
+			log.Fatal("Server forced to shutdown:", err)
+		}
+
+		log.Println("Server exiting")
+
 	},
 }
 
