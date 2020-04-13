@@ -34,22 +34,15 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - run:
-          cd frontend && ls -la
       - restore_cache: # special step to restore the dependency cache
             # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
             keys:
               - v1-repo-{{ checksum "frontend/package-lock.json" }}
-      - run:
-          name: Install dependencies with NPM
-          command: cd frontend && npm ci # replace with `yarn install` if using yarn
-
+      - run: bash scripts/frontend.bash
       - save_cache: # special step to save the dependency cache
           key: v1-repo-{{ checksum "frontend/package-lock.json" }}
           paths:
             - "frontend/node_modules"
-      - run:
-          cd frontend && npm run build
       - store_artifacts:
           path: frontend/dist
 workflows:
