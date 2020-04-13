@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "build:aot": "ng build --aot --optimization",
+    "build:aot": "ng build --aot --optimization --base-href /admin/",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
