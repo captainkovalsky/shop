@@ -1,5 +1,10 @@
 # E-Commerce website
 
+### Dev Sites
+
+Shop http://vdzundza.online/
+
+Admin (insecured) http://vdzundza.online/admin/
 
 ### Build Status
 
