@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FbAuthComponent } from './fb-auth/fb-auth.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FbAuthComponent
   ],
   imports: [
     BrowserModule,
