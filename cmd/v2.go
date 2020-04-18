@@ -17,6 +17,8 @@ package cmd
 
 import (
 	"context"
+	auth2 "github.com/captainkovalsky/shop/services/auth"
+	//"github.com/gin-contrib/cors"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"os"
@@ -39,15 +41,34 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		log.Println("v2 called")
-		r := gin.Default()
+		gin.SetMode(os.Getenv("GIN_MODE"))
 
-		r.GET("/ping", func(c *gin.Context) {
+		r := gin.Default()
+		auth := auth2.AuthRequired(os.Getenv("AUTH0_DOMAIN"), os.Getenv("AUTH0_API_IDENTIFIER"))
+
+		Cors := func(c *gin.Context) {
+			c.Writer.Header().Set("Access-Control-Allow-Origin", os.Getenv("ALLOW_ORIGIN"))
+			c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+			c.Writer.Header().Set("Access-Control-Allow-Methods", "DELETE, GET, OPTIONS, POST, PUT")
+
+			if c.Request.Method == "OPTIONS" {
+				c.AbortWithStatus(204)
+				return
+			}
+
+			c.Next()
+		}
+
+		r.Use(Cors, auth)
+
+		secured := r.Group("/v2")
+		secured.Use(Cors, auth)
+
+		secured.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
 			})
 		})
-
 		port, _ := cmd.Flags().GetString("port")
 		srv := &http.Server{
 			Addr:    ":" + port,

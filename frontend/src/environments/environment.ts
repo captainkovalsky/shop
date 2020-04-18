@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  facebookAppId: '229923008244792'
+  facebookAppId: '',
+  callback: '',
+  gateway: '',
+  domain: '',
+  clientId: '',
+  audience: ''
 };
 
 /*

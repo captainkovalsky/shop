@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./services/auth/auth.service";
+import {BucketService} from "./services/bucket.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+  constructor(public auth: AuthService, private bucket: BucketService) {
+  }
+
+
+  ping() {
+    this.bucket.ping().subscribe((r) => {
+      console.log('response', r)
+    })
+  }
+
 }
