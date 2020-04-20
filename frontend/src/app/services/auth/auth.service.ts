@@ -55,7 +55,7 @@ export class AuthService {
     this.id_token = null;
     this.expires_at = null;
     // Go back to the home route
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   public isAuthenticated(): boolean {

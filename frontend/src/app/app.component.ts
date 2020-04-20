@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import {AuthService} from "./services/auth/auth.service";
-import {BucketService} from "./services/bucket.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +6,9 @@ import {BucketService} from "./services/bucket.service";
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'frontend';
-
-  constructor(public auth: AuthService, private bucket: BucketService) {
-  }
 
 
-  ping() {
-    this.bucket.ping().subscribe((r) => {
-      console.log('response', r)
-    })
+  constructor( ) {
   }
 
 }

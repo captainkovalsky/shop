@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" [routerLink]="'.'">Admin</a>
+
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+    &#9776;
+  </button>
+
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+    <div class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"
+            *ngIf="auth.isAuthenticated()"
+            (click)="auth.logout()">
+          <a class="nav-link" [routerLink]="'.'">Logout</a>
+        </li>
+
+        <li class="nav-item"
+            *ngIf="!auth.isAuthenticated()"
+            (click)="auth.login()">
+          <a class="nav-link" [routerLink]="'.'">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

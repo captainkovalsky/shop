@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-callback',
-  templateUrl: './callback.component.html',
+  template: ``,
   styleUrls: ['./callback.component.sass']
 })
 export class CallbackComponent implements OnInit {
