@@ -35,9 +35,9 @@ jobs:
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
-            # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-            keys:
-              - v1-repo-{{ checksum "frontend/package-lock.json" }}
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          keys:
+            - v1-repo-{{ checksum "frontend/package-lock.json" }}
       - run: bash scripts/frontend.bash frontend
       - save_cache: # special step to save the dependency cache
           key: v1-repo-{{ checksum "frontend/package-lock.json" }}
@@ -48,15 +48,25 @@ jobs:
 
   deploy:
     machine:
-        enabled: true
+      enabled: true
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "a9:a0:82:59:85:51:24:d1:91:7a:a5:3b:2e:87:e5:a1"
       - run:
           name: "Deploy to Digital Ocean"
           command: |
-            ssh $SSH_USER@SSH_HOST "echo 0"
+            ssh $SSH_USER@$SSH_HOST "echo 0"
 workflows:
   version: 2
   build:
     jobs:
-      - "buildBE"
-      - "buildFE"
+#      - "buildBE"
+#      - "buildFE"
+      - deploy:
+#          requires:
+#            - buildBE
+#            - buildFE
+          filters:
+            branches:
+              only: master
