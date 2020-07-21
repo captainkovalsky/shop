@@ -2,7 +2,8 @@
 
 set -e
 
-cd frontend
+cd $1
+
 npm ci
 npm run build:aot
 cd -

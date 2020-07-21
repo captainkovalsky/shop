@@ -3,13 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  facebookAppId: '229923008244792',
-  callback: 'http://localhost:4200/callback',
-  gateway: 'http://localhost:9993/v2',
-  domain: 'vdzundza.eu.auth0.com',
-  clientId: 'fGaWuBne9huaffQpwXHkqy25RjtLH8Qe',
-  audience: 'https://vdzundza.online/v2'
+  production: false
 };
 
 /*
@@ -19,5 +13,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
