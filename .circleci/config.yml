@@ -56,7 +56,8 @@ jobs:
       - run:
           name: "Deploy to Digital Ocean"
           command: |
-            ssh $SSH_USER@$SSH_HOST "echo 0"
+            ssh-keyscan -H vdzundza.online >> ~/.ssh/known_hosts
+            ssh  -v $SSH_USER@$SSH_HOST "echo 0"
 workflows:
   version: 2
   build:
