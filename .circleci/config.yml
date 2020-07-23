@@ -21,8 +21,12 @@ jobs:
       - run: go get -v -d ./...
       - run: bash scripts/build.bash
       - run: ls dist
+      - run:
+          name: Compress Artifacts
+          command: tar -cvzf back.tar dist
       - store_artifacts:
-          path: dist
+          path: back.tar
+          destination: backend
 
   buildFE:
     docker:
@@ -38,8 +42,12 @@ jobs:
           key: v1-repo-{{ checksum "frontend/package-lock.json" }}
           paths:
             - "frontend/node_modules"
+      - run:
+          name: Compress artifacts
+          command: tar -cvzf front.tar frontend/dist
       - store_artifacts:
-          path: frontend/dist
+          path: front.tar
+          destination: frontend
 
   deploy:
     machine:
