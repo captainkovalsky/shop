@@ -52,11 +52,10 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "a9:a0:82:59:85:51:24:d1:91:7a:a5:3b:2e:87:e5:a1"
+            - "3a:49:3d:97:5f:6b:54:79:0c:32:0b:5c:28:b5:b2:a3"
       - run:
           name: "Deploy to Digital Ocean"
           command: |
-            ssh-keyscan -H vdzundza.online >> ~/.ssh/known_hosts
             ssh  -v $SSH_USER@$SSH_HOST "echo 0"
 workflows:
   version: 2
