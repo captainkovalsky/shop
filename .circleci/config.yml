@@ -23,7 +23,7 @@ jobs:
       - run: ls dist
       - run:
           name: Compress Artifacts
-          command: tar -cvzf back.tar dist
+          command: tar -cvzf back.tar -C dist .
       - store_artifacts:
           path: back.tar
           destination: backend
@@ -44,7 +44,7 @@ jobs:
             - "frontend/node_modules"
       - run:
           name: Compress artifacts
-          command: tar -cvzf front.tar frontend/dist
+          command: tar -cvzf front.tar -C frontend/dist/frontend .
       - store_artifacts:
           path: front.tar
           destination: frontend
