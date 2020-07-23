@@ -3,27 +3,22 @@
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2
 jobs:
-  buildBE:
+  testBackend:
     docker:
-      # specify the version
       - image: circleci/golang:latest
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    #### TEMPLATE_NOTE: go expects specific checkout path representing url
-    #### expecting it in the form of
-    ####   /go/src/github.com/circleci/go-tool
-    ####   /go/src/bitbucket.org/circleci/go-tool
     working_directory: /go/src/github.comcaptainkovalsky/shop
     steps:
       - checkout
-
-      # specify any bash command here prefixed with `run: `
       - run: go get -v -t -d ./...
       - run: go test -v ./...
+
+  buildBackend:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.comcaptainkovalsky/shop
+    steps:
+      - checkout
+      - run: go get -v -d ./...
       - run: bash scripts/build.bash
       - run: ls dist
       - store_artifacts:
@@ -56,17 +51,20 @@ jobs:
       - run:
           name: "Deploy to Digital Ocean"
           command: |
-            ssh  -v $SSH_USER@$SSH_HOST "echo 0"
+            ssh $SSH_USER@$SSH_HOST ./ci/deploy.bash $CIRCLECI_TOKEN
 workflows:
   version: 2
   build:
     jobs:
-#      - "buildBE"
-#      - "buildFE"
+      - buildFE
+      - testBackend
+      - buildBackend:
+          requires:
+            - testBackend
       - deploy:
-#          requires:
-#            - buildBE
-#            - buildFE
+          requires:
+            - buildBackend
+            - buildFE
           filters:
             branches:
               only: master
