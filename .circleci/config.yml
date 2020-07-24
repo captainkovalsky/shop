@@ -4,7 +4,7 @@
 version: 2
 
 jobs:
-  testBackend:
+  test_backend:
     docker:
       - image: circleci/golang:latest
     working_directory: /go/src/github.comcaptainkovalsky/shop
@@ -13,7 +13,7 @@ jobs:
       - run: go get -v -t -d ./...
       - run: go test -v ./...
 
-  buildBackend:
+  backend:
     docker:
       - image: circleci/golang:latest
     working_directory: /go/src/github.comcaptainkovalsky/shop
@@ -33,7 +33,7 @@ jobs:
             - scripts/deploy-services.bash
             - back.tar
 
-  buildFE:
+  frontend:
     docker:
       - image: circleci/node:latest
     steps:
@@ -82,15 +82,15 @@ workflows:
   version: 2
   build:
     jobs:
-      - buildFE
-      - testBackend
-      - buildBackend:
+      - frontend
+      - test_backend
+      - backend:
           requires:
-            - testBackend
+            - test_backend
       - deploy:
           requires:
-            - buildBackend
-            - buildFE
+            - backend
+            - frontend
           filters:
             branches:
               only: master
