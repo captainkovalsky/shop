@@ -28,7 +28,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - scripts/deploy.bash
+            - scripts/deploy.sh
             - back.tar
 
   buildFE:
@@ -68,9 +68,7 @@ jobs:
           name: "Deploy to Digital Ocean"
           command: |
             ls -lh workspace
-            bash
-
-            ssh $SSH_USER@$SSH_HOST ./ci/deploy.bash $CIRCLECI_TOKEN
+            sh workspace/scripts/deploy.sh
 workflows:
   version: 2
   build:
