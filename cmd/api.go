@@ -17,22 +17,19 @@ package cmd
 
 import (
 	"context"
-	auth2 "github.com/captainkovalsky/shop/services/auth"
-	//"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
-
-	"github.com/gin-gonic/gin"
-	"github.com/spf13/cobra"
 )
 
-// v2Cmd represents the v2 command
-var v2Cmd = &cobra.Command{
-	Use:   "v2",
+// apiCmd represents the api command
+var apiCmd = &cobra.Command{
+	Use:   "api",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -44,7 +41,6 @@ to quickly create a Cobra application.`,
 		gin.SetMode(os.Getenv("GIN_MODE"))
 
 		r := gin.Default()
-		auth := auth2.AuthRequired(os.Getenv("AUTH0_DOMAIN"), os.Getenv("AUTH0_API_IDENTIFIER"))
 
 		Cors := func(c *gin.Context) {
 			c.Writer.Header().Set("Access-Control-Allow-Origin", os.Getenv("ALLOW_ORIGIN"))
@@ -59,12 +55,12 @@ to quickly create a Cobra application.`,
 			c.Next()
 		}
 
-		r.Use(Cors, auth)
+		r.Use(Cors)
 
-		secured := r.Group("/v2")
-		secured.Use(Cors, auth)
+		api := r.Group("/api")
+		api.Use(Cors)
 
-		secured.GET("/ping", func(c *gin.Context) {
+		api.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
 			})
@@ -105,17 +101,16 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	adminCmd.AddCommand(v2Cmd)
+	rootCmd.AddCommand(apiCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// v2Cmd.PersistentFlags().String("foo", "", "A help for foo")
+	// apiCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// v2Cmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	v2Cmd.Flags().String("port", "9993", "Specify the local port to listen to.")
-
+	// apiCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	apiCmd.Flags().StringP("port", "p", "9001", "Api port")
 }

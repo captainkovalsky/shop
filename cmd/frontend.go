@@ -17,11 +17,9 @@ package cmd
 
 import (
 	"context"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"math/rand"
 	"net/http"
 	"os"
 	"os/signal"
@@ -75,15 +73,11 @@ func (h spaHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 // adminCmd represents the admin command
 var adminCmd = &cobra.Command{
-	Use:   "admin",
-	Short: "Admin App",
-	Long:  `Admin App for managing`,
+	Use:   "frontend",
+	Short: "Main Frontend app",
+	Long:  `Main Frontend app`,
 	Run: func(cmd *cobra.Command, args []string) {
-		username, _ := cmd.Flags().GetString("username")
-		password, _ := cmd.Flags().GetString("password")
 		port, _ := cmd.Flags().GetString("port")
-
-		log.Println(username, password, port)
 
 		router := gin.Default()
 		router.StaticFS("/", http.Dir("static"))
@@ -136,7 +130,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// adminCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	adminCmd.Flags().String("port", "9991", "Specify the local port to listen to.")
-	adminCmd.Flags().StringP("username", "u", fmt.Sprintf("%v", rand.Int()), "Specify username")
-	adminCmd.Flags().StringP("password", "p", fmt.Sprintf("%v", rand.Int()), "Specify password")
+	adminCmd.Flags().String("port", "9000", "Specify the local port to listen to.")
 }
