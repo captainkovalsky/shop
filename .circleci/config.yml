@@ -30,6 +30,7 @@ jobs:
           root: .
           paths:
             - scripts/deploy.sh
+            - scripts/deploy-services.bash
             - back.tar
 
   buildFE:
