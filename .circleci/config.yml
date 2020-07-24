@@ -56,8 +56,9 @@ jobs:
             - front.tar
 
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: buildpack-deps:trusty
+    resource_class: small
     steps:
       - attach_workspace:
           at: workspace
