@@ -2,6 +2,8 @@ build:
 	go get -u ./...
 	go build
 
+proto:
+	protoc --proto_path=proto --go_out=build/gen --go_opt=paths=source_relative cv.proto
 
 web:
 	cd frontend && npm i && npm run build:aot

@@ -33,4 +33,3 @@ do
 
 done
 
-cp -rv "./templates" "$dist"

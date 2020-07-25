@@ -1,0 +1,45 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+option go_package = "github.com/captainkovalsky/shop/src/app/models";
+
+message Experience {
+  google.protobuf.Timestamp startDate = 1;
+  google.protobuf.Timestamp endDate = 2;
+  Project project = 3;
+  Company company = 4;
+}
+
+message Company {
+  string name = 1;
+  string location = 2;
+  string siteUrl = 3;
+  string logo = 4;
+}
+
+message Project {
+  string name = 1;
+  string description = 2;
+  repeated string technology = 3;
+  bool useScrum = 4;
+  int32 backendSize = 5;
+  int32 frontendSize = 6;
+  int32 qaSize = 7;
+  string siteUrl = 8;
+}
+
+message CV {
+  repeated Experience Experience = 1;
+  string firstname = 2;
+  string Surname = 3;
+
+  repeated Language language = 4;
+}
+
+message Language {
+  string Name = 1;
+  enum Level {
+    UPPER_INTERMEDIATE = 0;
+    ADVANCED = 1;
+    FLUENT = 2;
+  }
+}

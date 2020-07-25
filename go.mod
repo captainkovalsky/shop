@@ -8,6 +8,7 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.6.2
+	github.com/golang/protobuf v1.4.1
 	github.com/gorilla/mux v1.7.4
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/howeyc/fsnotify v0.9.0 // indirect
@@ -30,7 +31,7 @@ require (
 	golang.org/x/sys v0.0.0-20200331124033-c3d80250170d // indirect
 	golang.org/x/text v0.3.2 // indirect
 	google.golang.org/api v0.20.0
-	google.golang.org/genproto v0.0.0-20200402124713-8ff61da6d932 // indirect
+	google.golang.org/protobuf v1.25.0
 	gopkg.in/ini.v1 v1.55.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.5.0
 	gopkg.in/yaml.v2 v2.2.8 // indirect
