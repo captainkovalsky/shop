@@ -24,3 +24,6 @@ static
 !*.secret
 .prod.env
 frontend/src/environments/environment.prod.ts
+
+
+.DS_Store

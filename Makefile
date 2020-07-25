@@ -9,7 +9,7 @@ web:
 
 
 run:
-	shop web
+	shop api
 
 fmt:
 	go fmt ./...

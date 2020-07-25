@@ -60,6 +60,12 @@ to quickly create a Cobra application.`,
 		api := r.Group("/api")
 		api.Use(Cors)
 
+		api.GET("/cv", func(c *gin.Context) {
+			c.JSON(200, gin.H{
+				"profile": "profile data",
+			})
+		})
+
 		api.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
