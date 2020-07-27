@@ -41,5 +41,8 @@ message Language {
     UPPER_INTERMEDIATE = 0;
     ADVANCED = 1;
     FLUENT = 2;
+    NATIVE = 3;
   }
+
+  Level level = 2;
 }

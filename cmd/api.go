@@ -17,6 +17,7 @@ package cmd
 
 import (
 	"context"
+	"github.com/captainkovalsky/shop/src"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -61,9 +62,9 @@ to quickly create a Cobra application.`,
 		api.Use(Cors)
 
 		api.GET("/cv", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"profile": "profile data",
-			})
+			cv := src.Cv{}
+			data, _ := cv.Load()
+			c.JSON(200, data)
 		})
 
 		api.GET("/ping", func(c *gin.Context) {
