@@ -1,10 +1,9 @@
 syntax = "proto3";
-import "google/protobuf/timestamp.proto";
 option go_package = "github.com/captainkovalsky/shop/src/app/models";
 
 message Experience {
-  google.protobuf.Timestamp startDate = 1;
-  google.protobuf.Timestamp endDate = 2;
+  string startDate = 1;
+  string endDate = 2;
   Project project = 3;
   Company company = 4;
 }
@@ -32,7 +31,12 @@ message CV {
   string firstname = 2;
   string Surname = 3;
 
-  repeated Language language = 4;
+  message Language {
+    string Name = 1;
+    string Level = 2;
+  }
+
+  repeated  Language language = 4;
 }
 
 message Language {
