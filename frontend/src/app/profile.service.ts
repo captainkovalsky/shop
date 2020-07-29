@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {DOCUMENT} from "@angular/common";
 
 export interface Contacts {
   skype: string;
@@ -73,13 +74,14 @@ export interface CV {
 export class ProfileService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    @Inject(DOCUMENT) private document: Document
   ) {
   }
 
 
   GetProfile(): Observable<CV> {
-    return this.http.get('http://localhost:9001/api/cv')
+    return this.http.get(`${this.document.domain}/api/cv`)
       .pipe(
         map(r => r as CV)
       );
