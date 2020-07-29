@@ -81,7 +81,7 @@ export class ProfileService {
 
 
   GetProfile(): Observable<CV> {
-    return this.http.get(`${this.document.domain}/api/cv`)
+    return this.http.get(`${this.document.location.origin}/api/cv`)
       .pipe(
         map(r => r as CV)
       );
