@@ -5,7 +5,12 @@ import {CV, ProfileService} from "./profile.service";
   selector: 'app-root',
   template: `
 <section class="section">
-<pre hidden>{{cv | json}}</pre>
+<!--<pre>{{cv | json}}</pre>-->
+
+  <ng-template ngFor let-exp [ngForOf]="cv?.experience">
+          <app-experience-row [exp]="exp"></app-experience-row>
+  </ng-template>
+
     <router-outlet></router-outlet>
 </section>
   `,

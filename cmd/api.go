@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"context"
-	"github.com/captainkovalsky/shop/src"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -40,7 +39,6 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		gin.SetMode(os.Getenv("GIN_MODE"))
-		cv := src.CvManager{}
 		r := gin.Default()
 
 		Cors := func(c *gin.Context) {
@@ -62,9 +60,7 @@ to quickly create a Cobra application.`,
 		api.Use(Cors)
 
 		api.GET("/cv", func(c *gin.Context) {
-
-			data, _ := cv.Load()
-			c.JSON(200, data)
+			c.File("./cv.json")
 		})
 
 		api.GET("/ping", func(c *gin.Context) {

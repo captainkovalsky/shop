@@ -1,0 +1,231 @@
+{
+  "name": "Viktor",
+  "surname": "Dzundza",
+  "contacts": {
+    "skype": "victor.dzundza",
+    "phone": "+380935481884",
+    "email": "victor.dzundza.dev@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/vdzundza",
+    "github": "https://github.com/captainkovalsky"
+  },
+  "summary": [
+    "I've been working as web developer since 2012",
+    " Developed the projects with different areas such as E-Commerce, online training system,nTicketing system etc.n        ",
+    " Experienced in front end development technologies including advanced HTML5, CSS3, JavaScript (cross-browser compatibility, AJAX)n        ",
+    " Opened for new ideas and approaches in development, also I agree to use modern web frameworks such as Vue, dojo2.n        ",
+    " Self-motivated; able to learn on own initiative"
+  ],
+  "experience": [
+    {
+      "startDate": "October 2019",
+      "endDate": "May 2020",
+      "role": "Senior Software Engineer",
+      "project": "Openpay",
+      "company": "Newxel",
+      "projectSite": "https://www.openpay.com.au/",
+      "frontendSize": 2,
+      "backendSize": 4,
+      "stack": [
+        "React",
+        "React MobX",
+        "HTML",
+        "CSS",
+        "CSS-in-JS",
+        "Javascript",
+        "node",
+        "graphql",
+        "rest",
+        "typescript"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "July 2019",
+      "endDate": "October 2019",
+      "role": "Senior Software Engineer",
+      "project": "Bussr",
+      "company": "QubitLabs",
+      "projectSite": null,
+      "frontendSize": 2,
+      "backendSize": 5,
+      "qaSize": 1,
+      "stack": [
+        "React",
+        "React saga",
+        "HTML",
+        "CSS",
+        "CSS-in-JS",
+        "Javascript",
+        "node",
+        "rest",
+        "hapi",
+        "express",
+        "mongoose"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "July 2018",
+      "endDate": "Jul 2019",
+      "role": "Senior Software Engineer",
+      "project": "Revelator",
+      "company": "Newxel",
+      "projectSite": "https://www.revelator.com/",
+      "frontendSize": 3,
+      "backendSize": 6,
+      "qaSize": 1,
+      "stack": [
+        "Angular",
+        "RxJS",
+        "HTML",
+        "CSS",
+        "SASS",
+        "Javascript",
+        "graphql",
+        "rest",
+        "MaterializeCSS"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "Feb 2018",
+      "endDate": "Jul 2018",
+      "role": "Senior Backend Developer",
+      "project": "AirMap",
+      "company": "Intellias",
+      "projectSite": "https://www.airmap.com/",
+      "frontendSize": 3,
+      "backendSize": 6,
+      "qaSize": 1,
+      "stack": [
+        "Angular",
+        "RxJS",
+        "HTML",
+        "CSS",
+        "SASS",
+        "Javascript",
+        "graphql",
+        "rest",
+        "MaterializeCSS"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "Sep 2016",
+      "endDate": "Jan 2018",
+      "role": "Senior Software Engineer",
+      "project": "HEG/GoDaddy",
+      "company": "LvivIT",
+      "projectSite": "https://www.airmap.com/",
+      "frontendSize": 3,
+      "backendSize": 3,
+      "qaSize": 1,
+      "stack": [
+        "Angular",
+        "React",
+        "most.js",
+        "React Epics",
+        "RxJS",
+        "Jasmine",
+        "Karma",
+        "Ramda",
+        "Verdaccio",
+        "CSS-In-JS",
+        "SASS",
+        "Javascript",
+        "rest",
+        "Typescript",
+        "Flow"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "Sep 2015",
+      "endDate": "Sep 2016",
+      "role": "Software Engineer",
+      "project": "DHL",
+      "company": "Epam",
+      "projectSite": "",
+      "frontendSize": 4,
+      "backendSize": 4,
+      "qaSize": 3,
+      "stack": [
+        "AngularJS",
+        "Jasmine",
+        "Karma",
+        "CSS",
+        "Javascript",
+        "rest"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "April 2015",
+      "endDate": "Sep 2015",
+      "role": "Software Engineer",
+      "project": "EPAM Monitor",
+      "company": "Epam",
+      "projectSite": "",
+      "frontendSize": 2,
+      "backendSize": 3,
+      "qaSize": 2,
+      "stack": [
+        "AngularJS",
+        "Jasmine",
+        "Karma",
+        "CSS",
+        "Javascript",
+        "rest"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "March 2015",
+      "endDate": "March 2015",
+      "role": "Software Engineer",
+      "project": "NBCU-SCPL",
+      "company": "Epam",
+      "projectSite": "",
+      "frontendSize": 2,
+      "backendSize": 3,
+      "qaSize": 2,
+      "stack": [
+        "AngularJS",
+        "Jasmine",
+        "Karma",
+        "CSS",
+        "Javascript",
+        "rest"
+      ],
+      "responsibilities": []
+    }
+  ],
+  "faq": [
+    {
+      "question": [
+        {
+          "lang": "UA",
+          "text": ""
+        }
+      ],
+      "answer": [
+        {
+          "lang": "UA",
+          "text": ""
+        }
+      ],
+      "company": "",
+      "project": ""
+    }
+  ],
+  "compensation": {
+    "hourly": {
+      "amount": 0,
+      "currency": ""
+    },
+    "monthly": {
+      "amount": 0,
+      "currency": ""
+    }
+  }
+}
