@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Experience} from "../profile.service";
 
 @Component({
-  selector: 'app-experience-row',
+  selector: 'app-experience',
   template: `
 
 <div class="box">
@@ -31,7 +31,7 @@ import {Experience} from "../profile.service";
   `,
   styles: []
 })
-export class ExperienceRowComponent implements OnInit {
+export class ExperienceComponent implements OnInit {
   @Input('exp') exp: Experience | null;
 
   constructor() {
@@ -40,5 +40,4 @@ export class ExperienceRowComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
