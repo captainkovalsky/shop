@@ -206,6 +206,68 @@
         "rest"
       ],
       "responsibilities": []
+    },
+    {
+      "startDate": "December 2014",
+      "endDate": "February 2015",
+      "role": "Software Engineer",
+      "project": "Keywee Software Technologies",
+      "company": "Intersog",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C510BAQFtk8_uhIHqdg/company-logo_200_200/0?e=1603929600&v=beta&t=Ea48hd6xJVukhOsWL3-w5hu2-ocs059DK08dWjfqx8k",
+      "projectSite": "",
+      "frontendSize": 1,
+      "backendSize": 0,
+      "qaSize": 1,
+      "stack": [
+        "Google Chrome Extension",
+        "Javascript",
+        "CSS",
+        "Canvas",
+        "XMLHTTPRequest",
+        "AJAX"
+      ],
+      "responsibilities": []
+    },
+
+    {
+      "startDate": "December 2014",
+      "endDate": "January 2015",
+      "role": "Software Engineer",
+      "project": "NDA",
+      "company": "Intersog",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C510BAQFtk8_uhIHqdg/company-logo_200_200/0?e=1603929600&v=beta&t=Ea48hd6xJVukhOsWL3-w5hu2-ocs059DK08dWjfqx8k",
+      "projectSite": "",
+      "frontendSize": 1,
+      "backendSize": 1,
+      "qaSize": 1,
+      "stack": [
+       "Windows API",
+        "C++"
+      ],
+      "responsibilities": []
+    },
+
+    {
+      "startDate": "October 2014",
+      "endDate": "December 2014",
+      "role": "Fullstack Engineer",
+      "project": "Renomii",
+      "company": "SoftJourn",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C4D0BAQGEvp2-mq-s6w/company-logo_200_200/0?e=1603929600&v=beta&t=uVPRDjC7-psRiMGpbCV4CTKGKZKz0FMBZJWj4c4SMCQ",
+      "projectSite": "",
+      "frontendSize": 1,
+      "backendSize": 1,
+      "qaSize": 1,
+      "stack": [
+        "Javascript",
+        "Node",
+        "Bootstrap",
+        "Jquery",
+        "AJAX",
+        "Rest",
+        "MongoDB"
+      ],
+      "responsibilities": []
     }
   ],
   "faq": [
