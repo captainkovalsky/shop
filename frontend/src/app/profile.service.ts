@@ -18,6 +18,7 @@ export interface Experience {
   role: string;
   project: string;
   company: string;
+  companyLogo: string;
   projectSite: string;
   frontendSize: number;
   backendSize: number;
