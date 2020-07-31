@@ -4,7 +4,8 @@ import {CV, ProfileService} from "./profile.service";
 export enum Tab {
   EXP = 1,
   FAQ,
-  CONTACT
+  CONTACT,
+  STACK
 }
 
 @Component({
@@ -14,14 +15,33 @@ export enum Tab {
   <div class="tabs is-medium">
     <ul (click)="SwitchTab($event)">
       <li [ngClass]="{'is-active': tab === tabs.EXP}"><a [attr.id]="tabs.EXP">Experience</a></li>
-<!--      <li   [ngClass]="{'is-active': tab === tabs.FAQ}"><a [attr.id]="tabs.FAQ">FAQs</a></li>-->
-<!--      <li  [ngClass]="{'is-active': tab === tabs.CONTACT}"><a [attr.id]="tabs.CONTACT">Contacts</a></li>-->
+<!--      <li [ngClass]="{'is-active': tab === tabs.FAQ}"><a [attr.id]="tabs.FAQ">FAQs</a></li>-->
+<!--      <li [ngClass]="{'is-active': tab === tabs.CONTACT}"><a [attr.id]="tabs.CONTACT">Contacts</a></li>-->
+<!--      <li [ngClass]="{'is-active': tab === tabs.STACK}"><a [attr.id]="tabs.STACK">Technologies</a></li>-->
     </ul>
   </div>
 
-  <ng-template ngFor let-exp [ngForOf]="cv?.experience">
-      <app-experience [exp]="exp"></app-experience>
-  </ng-template>
+    <ng-template *ngIf="tab === tabs.EXP" ngFor let-exp [ngForOf]="cv?.experience">
+          <app-experience [exp]="exp"></app-experience>
+    </ng-template>
+
+      <div class="box" *ngIf="tab === tabs.FAQ">
+        <article class="media">
+            FAQ
+        </article>
+      </div>
+
+      <div class="box" *ngIf="tab === tabs.CONTACT">
+        <article class="media">
+            CONTACT
+        </article>
+      </div>
+
+      <div class="box" *ngIf="tab === tabs.STACK">
+        <article class="media">
+            STACK
+        </article>
+      </div>
 
   <router-outlet></router-outlet>
 </section>

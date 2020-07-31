@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ExperienceComponent } from './experience/experience.component';
+import { StackPageComponent } from './stack-page/stack-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    StackPageComponent
   ],
   imports: [
     BrowserModule,
