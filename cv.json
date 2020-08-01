@@ -63,6 +63,7 @@
         "hapi",
         "express",
         "mongoose",
+        "MongoDB",
         "Typescript"
       ],
       "responsibilities": []
@@ -111,7 +112,7 @@
         "YAML",
         "REST",
         "node",
-        "OAuth",
+        "Auth0",
         "Docker",
         "CircleCI"
       ],
@@ -147,7 +148,8 @@
         "Typescript",
         "Docker",
         "Flow",
-        "Artifactory"
+        "Artifactory",
+        "Keycloak"
       ],
       "responsibilities": []
     },
@@ -168,6 +170,7 @@
         "HTML",
         "Karma",
         "CSS",
+        "SASS",
         "Javascript",
         "REST"
       ],
@@ -278,7 +281,88 @@
         "AJAX",
         "REST",
         "HTML",
-        "MongoDB"
+        "MongoDB",
+        "mongoose"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "2014-04-01",
+      "endDate": "2014-09-30",
+      "role": "Fullstack Engineer",
+      "project": "MicroSpec Systems Inc",
+      "company": "SoftJourn",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C4D0BAQGEvp2-mq-s6w/company-logo_200_200/0?e=1603929600&v=beta&t=uVPRDjC7-psRiMGpbCV4CTKGKZKz0FMBZJWj4c4SMCQ",
+      "projectSite": "",
+      "frontendSize": 2,
+      "backendSize": 3,
+      "qaSize": 1,
+      "stack": [
+        "Javascript",
+        "Bootstrap",
+        "Jquery",
+        "AJAX",
+        "REST",
+        "HTML",
+        "CSS",
+        "ASP.NET MVC2",
+        "Entity Framework",
+        "SQL",
+        "LINQ"
+      ],
+      "responsibilities": []
+    },
+
+    {
+      "startDate": "2013-07-01",
+      "endDate": "2014-01-02",
+      "role": "Fullstack Engineer",
+      "project": "PlayFitness",
+      "company": "SoftJourn",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C4D0BAQGEvp2-mq-s6w/company-logo_200_200/0?e=1603929600&v=beta&t=uVPRDjC7-psRiMGpbCV4CTKGKZKz0FMBZJWj4c4SMCQ",
+      "projectSite": "",
+      "frontendSize": 1,
+      "backendSize": 1,
+      "qaSize": 1,
+      "stack": [
+        "Javascript",
+        "Bootstrap",
+        "Jquery",
+        "AJAX",
+        "REST",
+        "HTML",
+        "CSS",
+        "LESS",
+        "SQL",
+        "PHP",
+        "Joomla"
+      ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "2013-01-01",
+      "endDate": "2013-02-01",
+      "role": "Fullstack Engineer",
+      "project": "TennisTours",
+      "company": "Letzgro (former Lezgro)",
+      "isIntern": true,
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C510BAQGsPqz3OS_5Ng/company-logo_200_200/0?e=1604534400&v=beta&t=_sLSmIRyvRWX-VbPbQR9igfjn-jz-EVuly5vgs7lNxo",
+      "projectSite": "",
+      "frontendSize": 1,
+      "backendSize": 1,
+      "qaSize": 1,
+      "stack": [
+        "Javascript",
+        "CSS",
+        "Jquery",
+        "AJAX",
+        "REST",
+        "HTML",
+        "Yii",
+        "CSS",
+        "SQL",
+        "PHP",
+        "MS SQL"
       ],
       "responsibilities": []
     }
