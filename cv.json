@@ -17,8 +17,8 @@
   ],
   "experience": [
     {
-      "startDate": "October 2019",
-      "endDate": "May 2020",
+      "startDate": "2019-10-01",
+      "endDate": "2020-05-31",
       "role": "Senior Software Engineer",
       "project": "Openpay",
       "company": "Newxel",
@@ -34,15 +34,15 @@
         "CSS-in-JS",
         "Javascript",
         "node",
-        "graphql",
-        "rest",
-        "typescript"
+        "GraphQL",
+        "REST",
+        "Typescript"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "July 2019",
-      "endDate": "October 2019",
+      "startDate": "2019-09-01",
+      "endDate": "2019-10-15",
       "role": "Senior Software Engineer",
       "project": "Bussr",
       "company": "QubitLabs",
@@ -59,16 +59,17 @@
         "CSS-in-JS",
         "Javascript",
         "node",
-        "rest",
+        "REST",
         "hapi",
         "express",
-        "mongoose"
+        "mongoose",
+        "Typescript"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "July 2018",
-      "endDate": "Jul 2019",
+      "startDate": "2019-10-15",
+      "endDate": "2020-04-30",
       "role": "Senior Software Engineer",
       "project": "Revelator",
       "company": "Newxel",
@@ -84,15 +85,16 @@
         "CSS",
         "SASS",
         "Javascript",
-        "graphql",
-        "rest",
+        "Typescript",
+        "GraphQL",
+        "REST",
         "MaterializeCSS"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "Feb 2018",
-      "endDate": "Jul 2018",
+      "startDate": "2018-02-01",
+      "endDate": "2018-07-30",
       "role": "Senior Backend Developer",
       "project": "AirMap",
       "company": "Intellias",
@@ -102,21 +104,22 @@
       "backendSize": 6,
       "qaSize": 1,
       "stack": [
-        "Angular",
-        "RxJS",
-        "HTML",
-        "CSS",
-        "SASS",
-        "Javascript",
-        "graphql",
-        "rest",
-        "MaterializeCSS"
+        "Golang",
+        "Kubernetes",
+        "Bash",
+        "Fish",
+        "YAML",
+        "REST",
+        "node",
+        "OAuth",
+        "Docker",
+        "CircleCI"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "Sep 2016",
-      "endDate": "Jan 2018",
+      "startDate": "2016-09-01",
+      "endDate": "2018-01-16",
       "role": "Senior Software Engineer",
       "project": "HEG/GoDaddy",
       "company": "LvivIT",
@@ -135,18 +138,22 @@
         "Karma",
         "Ramda",
         "Verdaccio",
-        "CSS-In-JS",
+        "CSS-in-JS",
         "SASS",
+        "CSS",
+        "HTML",
         "Javascript",
-        "rest",
+        "REST",
         "Typescript",
-        "Flow"
+        "Docker",
+        "Flow",
+        "Artifactory"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "Sep 2015",
-      "endDate": "Sep 2016",
+      "startDate": "2015-09-01",
+      "endDate": "2016-08-31",
       "role": "Software Engineer",
       "project": "DHL",
       "company": "Epam",
@@ -158,16 +165,17 @@
       "stack": [
         "AngularJS",
         "Jasmine",
+        "HTML",
         "Karma",
         "CSS",
         "Javascript",
-        "rest"
+        "REST"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "April 2015",
-      "endDate": "Sep 2015",
+      "startDate": "2015-04-01",
+      "endDate": "2015-09-01",
       "role": "Software Engineer",
       "project": "EPAM Monitor",
       "company": "Epam",
@@ -182,13 +190,14 @@
         "Karma",
         "CSS",
         "Javascript",
-        "rest"
+        "HTML",
+        "REST"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "March 2015",
-      "endDate": "March 2015",
+      "startDate": "2015-03-01",
+      "endDate": "2015-04-01",
       "role": "Software Engineer",
       "project": "NBCU-SCPL",
       "company": "Epam",
@@ -199,17 +208,18 @@
       "qaSize": 2,
       "stack": [
         "AngularJS",
+        "HTML",
         "Jasmine",
         "Karma",
         "CSS",
         "Javascript",
-        "rest"
+        "REST"
       ],
       "responsibilities": []
     },
     {
-      "startDate": "December 2014",
-      "endDate": "February 2015",
+      "startDate": "2014-12-15",
+      "endDate": "2015-01-15",
       "role": "Software Engineer",
       "project": "Keywee Software Technologies",
       "company": "Intersog",
@@ -221,8 +231,10 @@
       "stack": [
         "Google Chrome Extension",
         "Javascript",
+        "HTML",
         "CSS",
         "Canvas",
+        "REST",
         "XMLHTTPRequest",
         "AJAX"
       ],
@@ -230,8 +242,8 @@
     },
 
     {
-      "startDate": "December 2014",
-      "endDate": "January 2015",
+      "startDate": "2015-01-17",
+      "endDate": "2015-01-30",
       "role": "Software Engineer",
       "project": "NDA",
       "company": "Intersog",
@@ -248,8 +260,8 @@
     },
 
     {
-      "startDate": "October 2014",
-      "endDate": "December 2014",
+      "startDate": "2014-10-01",
+      "endDate": "2014-12-15",
       "role": "Fullstack Engineer",
       "project": "Renomii",
       "company": "SoftJourn",
@@ -264,7 +276,8 @@
         "Bootstrap",
         "Jquery",
         "AJAX",
-        "Rest",
+        "REST",
+        "HTML",
         "MongoDB"
       ],
       "responsibilities": []
