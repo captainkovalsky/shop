@@ -4,14 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {DOCUMENT} from "@angular/common";
 
-import {
-  differenceInBusinessDays,
-  differenceInCalendarDays,
-  differenceInCalendarMonths, differenceInCalendarYears,
-  differenceInDays,
-  isValid,
-  parseISO
-} from "date-fns"
+import {intervalToDuration, isValid, parseISO} from "date-fns"
 
 export interface Contacts {
   skype: string;
@@ -78,12 +71,8 @@ export interface CV {
   compensation: Compensation;
 }
 
-export interface Period {
-  days: number;
-  months: number;
-}
 export interface StackExperience {
-  [key: string]: Period;
+  [key: string]: Duration[];
 }
 
 
@@ -117,38 +106,37 @@ export class ProfileService {
     });
 
 
+    let initial: StackExperience = {
+    };
     const response: StackExperience = experience.reduce((prev, curr) => {
       const endDate = parseISO(curr.endDate),
         startDate = parseISO(curr.startDate);
 
 
-      const days = differenceInCalendarDays(endDate, startDate)
-      const month = differenceInCalendarMonths(endDate, startDate)
+      const interval = intervalToDuration({start: startDate, end: endDate});
 
       curr.stack.forEach((tech) => {
-        console.log(`${curr.company} - ${tech}`)
         // @ts-ignore
         if (prev[tech] != undefined) {
-          console.log(`has tech in ${prev}`);
-          // @ts-ignore
-          (prev[tech] as Period).days += days;
-          // @ts-ignore
-          (prev[tech] as Period).months += month;
+          prev[tech].push(interval);
+
         } else {
-          console.log(`NO tech in ${prev}`);
           // @ts-ignore
-          prev[tech] = {};
-          // @ts-ignore
-          (prev[tech] as Period).days = days;
-          // @ts-ignore
-          (prev[tech] as Period).months = month;
+          prev[tech] = [Object.assign({
+            years: 0,
+            months: 0,
+            days: 0,
+            weeks: 0
+          }, interval)];
         }
       })
 
       return prev;
-    }, {});
+    }, initial);
 
 
     return response;
   }
+
+
 }
