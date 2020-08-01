@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Experience, ProfileService, StackExperience} from "../profile.service";
-import {add, formatDuration, intervalToDuration} from "date-fns";
+import {formatDuration, intervalToDuration} from "date-fns";
+import {add} from "date-fns";
 
 export interface StackInfo {
   name: string;
@@ -11,7 +12,7 @@ export interface StackInfo {
 @Component({
   selector: 'app-stack-page',
   template: `
-          <div class="box" >
+          <div class="box">
         <article class="media">
             <div class="table-container">
               <table class="table">
@@ -61,10 +62,9 @@ export class StackPageComponent implements OnInit {
             name: s,
             intervals: stack[s],
             sum: stack[s].reduce((p, c) => {
-              const a = new Date();
-              let b = add(a, p)
-              b = add(b, c);
-              return intervalToDuration({start: a, end: b});
+              const start = new Date();
+              const end = add(add(start, c), p);
+              return intervalToDuration({start, end});
             }, {
               days: 0
             }),

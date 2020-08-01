@@ -118,11 +118,40 @@
       ],
       "responsibilities": []
     },
+
     {
-      "startDate": "2016-09-01",
+      "startDate": "2017-09-01",
       "endDate": "2018-01-16",
       "role": "Senior Software Engineer",
-      "project": "HEG/GoDaddy",
+      "project": "GoDaddy",
+      "company": "LvivIT",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C560BAQG3wShAk8NDeA/company-logo_200_200/0?e=1603929600&v=beta&t=9uy9YpCiXAHh-zHuthCceefZShuDUFwdCZCtgqQ-JSA",
+      "projectSite": "",
+      "frontendSize": 3,
+      "backendSize": 3,
+      "qaSize": 1,
+      "stack": [
+        "React",
+        "most.js",
+        "React Epics",
+        "Ramda",
+        "CSS-in-JS",
+        "SASS",
+        "CSS",
+        "HTML",
+        "Javascript",
+        "REST",
+        "Flow",
+        "Flow"
+      ],
+      "responsibilities": []
+    },
+
+    {
+      "startDate": "2016-09-01",
+      "endDate": "2017-08-01",
+      "role": "Senior Software Engineer",
+      "project": "HEG",
       "company": "LvivIT",
       "companyLogo": "https://media-exp1.licdn.com/dms/image/C560BAQG3wShAk8NDeA/company-logo_200_200/0?e=1603929600&v=beta&t=9uy9YpCiXAHh-zHuthCceefZShuDUFwdCZCtgqQ-JSA",
       "projectSite": "",
@@ -131,15 +160,10 @@
       "qaSize": 1,
       "stack": [
         "Angular",
-        "React",
-        "most.js",
-        "React Epics",
         "RxJS",
         "Jasmine",
         "Karma",
-        "Ramda",
         "Verdaccio",
-        "CSS-in-JS",
         "SASS",
         "CSS",
         "HTML",
@@ -147,10 +171,30 @@
         "REST",
         "Typescript",
         "Docker",
-        "Flow",
         "Artifactory",
         "Keycloak"
       ],
+      "responsibilities": []
+    },
+    {
+      "startDate": "2016-04-01",
+      "endDate": "2016-06-30",
+      "role": "Software Engineer",
+      "project": "Flipbase",
+      "company": "Freelance",
+      "companyLogo": "https://media-exp1.licdn.com/dms/image/C560BAQE5grFDfjKhTw/company-logo_200_200/0?e=1604534400&v=beta&t=WtLwe213_tlFHJqQoA8zYDUdIFkbh7XXRGSBqiVDqto",
+      "projectSite": "",
+      "frontendSize": 2,
+      "qaSize": 1,
+      "stack": [
+        "React",
+        "Redux",
+        "HTML",
+        "CSS",
+        "SASS",
+        "Javascript"
+      ],
+      "poc": true,
       "responsibilities": []
     },
     {
@@ -281,6 +325,7 @@
         "AJAX",
         "REST",
         "HTML",
+        "express",
         "MongoDB",
         "mongoose"
       ],
@@ -308,7 +353,8 @@
         "ASP.NET MVC2",
         "Entity Framework",
         "SQL",
-        "LINQ"
+        "LINQ",
+        "C#"
       ],
       "responsibilities": []
     },

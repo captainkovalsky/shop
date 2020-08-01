@@ -18,6 +18,8 @@ import {Experience} from "../profile.service";
           <strong>{{exp?.company}}</strong> - {{exp?.project}}
           <br>
         </p>
+            <p>{{exp?.role}}</p>
+
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
