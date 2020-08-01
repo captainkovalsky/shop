@@ -17,7 +17,7 @@ export enum Tab {
       <li [ngClass]="{'is-active': tab === tabs.EXP}"><a [attr.id]="tabs.EXP">Experience</a></li>
 <!--      <li [ngClass]="{'is-active': tab === tabs.FAQ}"><a [attr.id]="tabs.FAQ">FAQs</a></li>-->
 <!--      <li [ngClass]="{'is-active': tab === tabs.CONTACT}"><a [attr.id]="tabs.CONTACT">Contacts</a></li>-->
-<!--      <li [ngClass]="{'is-active': tab === tabs.STACK}"><a [attr.id]="tabs.STACK">Technologies</a></li>-->
+      <li [ngClass]="{'is-active': tab === tabs.STACK}"><a [attr.id]="tabs.STACK">Technologies</a></li>
     </ul>
   </div>
 
@@ -37,11 +37,7 @@ export enum Tab {
         </article>
       </div>
 
-      <div class="box" *ngIf="tab === tabs.STACK">
-        <article class="media">
-            STACK
-        </article>
-      </div>
+      <app-stack-page *ngIf="tab === tabs.STACK && cv && cv.experience" [exp]="cv.experience"></app-stack-page>
 
   <router-outlet></router-outlet>
 </section>
