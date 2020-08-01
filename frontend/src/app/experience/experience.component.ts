@@ -21,17 +21,19 @@ import {Experience} from "../profile.service";
             <p>{{exp?.role}}</p>
 
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="reply">
-          </a>
-        </div>
-      </nav>
+      <div class="content extra">
+      DESCRIPTION
+      </div>
     </div>
   </article>
 </div>
   `,
-  styles: []
+  styles: [`
+    .extra {
+      display: none;
+    }
+  `],
+  animations: []
 })
 export class ExperienceComponent implements OnInit {
   @Input('exp') exp: Experience | null;

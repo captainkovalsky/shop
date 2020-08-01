@@ -42,7 +42,10 @@ export enum Tab {
   <router-outlet></router-outlet>
 </section>
   `,
-  styles: []
+  styles: [
+    `
+
+    `]
 })
 export class AppComponent implements OnInit {
   title = 'CV';

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Experience, ProfileService, StackExperience} from "../profile.service";
-import {formatDuration, intervalToDuration} from "date-fns";
-import {add} from "date-fns";
+import {add, formatDuration, intervalToDuration} from "date-fns";
 
 export interface StackInfo {
   name: string;
@@ -15,10 +14,10 @@ export interface StackInfo {
           <div class="box">
         <article class="media">
             <div class="table-container">
-              <table class="table">
+              <table class="table is-striped is-fullwidth">
               <thead>
                 <tr>
-                  <th><abbr title="Technology">Technology</abbr></th>
+                  <th class="mobile"><abbr title="Technology">Technology</abbr></th>
                   <th>Duration</th>
                 </tr>
               </thead>
@@ -30,11 +29,18 @@ export interface StackInfo {
                 <!-- Your table content -->
               </table>
             </div>
-
         </article>
       </div>
   `,
-  styles: []
+  styles: [
+    `
+    @media (max-width: 500px) {
+      .mobile {
+        width: 1%;
+      }
+    }
+    `
+  ]
 })
 export class StackPageComponent implements OnInit {
   @Input('exp') exp: Experience[];
@@ -50,13 +56,13 @@ export class StackPageComponent implements OnInit {
   }
 
   format(duration: Duration): string {
-    return formatDuration(duration,  {format: ['years', 'months', 'days']})
+    return formatDuration(duration, {format: ['years', 'months']})
   }
 
   stackInfo(): StackInfo[] {
     if (this.stack) {
       let stack = this.stack;
-      let result = Object.keys(stack)
+      return Object.keys(stack)
         .map((s: string) => {
           return {
             name: s,
@@ -66,20 +72,17 @@ export class StackPageComponent implements OnInit {
               const end = add(add(start, c), p);
               return intervalToDuration({start, end});
             }, {
-              days: 0
+              months: 1
             }),
           };
         })
-        .sort((a , b ) => {
-          let first = (a?.sum.days ?? 0) + (a?.sum.years ?? 0) * 360 + (a.sum.months ?? 0) * 30;
-          let second = (b?.sum.days ?? 0) + (b?.sum.years ?? 0) * 360 + (b.sum.months ?? 0) * 30;
+        .sort((a, b) => {
+          let first = (a.sum.days ?? 0) + (a.sum.years ?? 0) * 366 + (a.sum.months ?? 0) * 30;
+          let second = (b.sum.days ?? 0) + (b.sum.years ?? 0) * 366 + (b.sum.months ?? 0) * 30;
           return second - first;
         });
-
-      return result
     }
 
     return [];
   }
-
 }
