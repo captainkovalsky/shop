@@ -40,10 +40,9 @@ export interface Answer {
 }
 
 export interface Faq {
-  question: Question[];
-  answer: Answer[];
-  company: string;
-  project: string;
+  question: string;
+  answer: string;
+  lang: string;
 }
 
 export interface Hourly {

@@ -15,7 +15,7 @@ export enum Tab {
   <div class="tabs is-medium">
     <ul (click)="SwitchTab($event)">
       <li [ngClass]="{'is-active': tab === tabs.EXP}"><a [attr.id]="tabs.EXP">Experience</a></li>
-<!--      <li [ngClass]="{'is-active': tab === tabs.FAQ}"><a [attr.id]="tabs.FAQ">FAQs</a></li>-->
+      <li [ngClass]="{'is-active': tab === tabs.FAQ}"><a [attr.id]="tabs.FAQ">FAQs</a></li>
 <!--      <li [ngClass]="{'is-active': tab === tabs.CONTACT}"><a [attr.id]="tabs.CONTACT">Contacts</a></li>-->
       <li [ngClass]="{'is-active': tab === tabs.STACK}"><a [attr.id]="tabs.STACK">Technologies</a></li>
     </ul>
@@ -25,11 +25,7 @@ export enum Tab {
           <app-experience [exp]="exp"></app-experience>
     </ng-template>
 
-      <div class="box" *ngIf="tab === tabs.FAQ">
-        <article class="media">
-            FAQ
-        </article>
-      </div>
+    <app-faq-page *ngIf="tab === tabs.FAQ && cv && cv.faq" [faq]="cv.faq"></app-faq-page>
 
       <div class="box" *ngIf="tab === tabs.CONTACT">
         <article class="media">

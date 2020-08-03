@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ExperienceComponent } from './experience/experience.component';
 import { StackPageComponent } from './stack-page/stack-page.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExperienceComponent,
-    StackPageComponent
+    StackPageComponent,
+    FaqPageComponent
   ],
   imports: [
     BrowserModule,

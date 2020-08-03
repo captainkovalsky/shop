@@ -415,20 +415,21 @@
   ],
   "faq": [
     {
-      "question": [
-        {
-          "lang": "UA",
-          "text": ""
-        }
-      ],
-      "answer": [
-        {
-          "lang": "UA",
-          "text": ""
-        }
-      ],
-      "company": "",
-      "project": ""
+      "question": "What would you prefer Angular or React ?",
+      "answer": "Angular",
+      "lang": "EN"
+    },
+
+    {
+      "question": "\nWhy did you work only a few months on the Bussr project ?",
+      "answer": "See <a href='https://ebanoe.it/tag/bussr/'>Answer</a> and I left before that articles &#128521",
+      "lang": "EN"
+    },
+
+    {
+      "question": "\nWhat's the reason for looking a job ?",
+      "answer": "Previous project was closed due COVID-19",
+      "lang": "EN"
     }
   ],
   "compensation": {
