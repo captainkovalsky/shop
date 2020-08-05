@@ -54,6 +54,7 @@
       "stack": [
         "React",
         "React saga",
+        "Redux",
         "HTML",
         "CSS",
         "CSS-in-JS",
@@ -132,6 +133,7 @@
       "qaSize": 1,
       "stack": [
         "React",
+        "Redux",
         "most.js",
         "React Epics",
         "Ramda",
