@@ -88,11 +88,14 @@ workflows:
       - backend:
           requires:
             - test_backend
-      - deploy:
+      - hold:
+          type: approval
           requires:
             - backend
             - frontend
-          type: approval
+      - deploy:
+          requires:
+            - hold
           filters:
             branches:
               only: master
