@@ -92,6 +92,7 @@ workflows:
           requires:
             - backend
             - frontend
+          type: approval
           filters:
             branches:
               only: master
