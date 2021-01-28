@@ -1,0 +1,12 @@
+[Unit]
+Description=shoper
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/circleci/shop/shop-linux-amd64 frontend
+WorkingDirectory=/home/circleci/shop
+
+[Install]
+WantedBy=multi-user.target

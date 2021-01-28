@@ -1,0 +1,12 @@
+[Unit]
+Description=shoper-admin
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/circleci/shop/shop-linux-amd64 api
+WorkingDirectory=/home/circleci/shop/
+Environment="GIN_MODE=release"
+[Install]
+WantedBy=multi-user.target
