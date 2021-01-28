@@ -34,30 +34,6 @@ jobs:
             - scripts/deploy-services.bash
             - back.tar
 
-  frontend:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          keys:
-            - v1-repo-{{ checksum "frontend/package-lock.json" }}
-      - run: bash scripts/frontend.bash frontend
-      - save_cache: # special step to save the dependency cache
-          key: v1-repo-{{ checksum "frontend/package-lock.json" }}
-          paths:
-            - "frontend/node_modules"
-      - run:
-          name: Compress artifacts
-          command: tar -cvzf front.tar -C frontend/dist/frontend .
-      - store_artifacts:
-          path: front.tar
-      - persist_to_workspace:
-          root: .
-          paths:
-            - front.tar
-
   deploy:
     docker:
       - image: cimg/base:2020.01
@@ -83,7 +59,6 @@ workflows:
   version: 2
   build:
     jobs:
-      - frontend
       - test_backend
       - backend:
           requires:
@@ -92,7 +67,6 @@ workflows:
           type: approval
           requires:
             - backend
-            - frontend
       - deploy:
           requires:
             - hold
